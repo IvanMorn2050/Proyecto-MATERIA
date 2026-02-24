@@ -1,0 +1,31 @@
+{% extends "base_auth.html" %}
+
+{% block content %}
+
+<div class="auth-container">
+    <form class="auth-form">
+        <div class="auth-box">
+            <div class="circle"></div>
+            <h2>REGISTRO DE CLIENTE</h2>
+            <label>Nombre completo</label>
+            <input type="text" placeholder="Tu nombre">
+            <label>Correo electrónico</label>
+            <input type="email" placeholder="correo@email.com">
+            <label>Contraseña</label>
+            <input type="password" placeholder="********">
+            <label>Confirmar contraseña</label>
+            <input type="password" placeholder="********">
+            <label>Teléfono</label>
+            <input type="tel" placeholder="555-000-0000">
+            <label>Dirección</label>
+            <input type="text" placeholder="Calle y número">
+        </div>
+
+        <div class="auth-actions">
+            <button type="submit">REGISTRARSE</button>
+            <a href="/" class="btn-alt">VOLVER</a>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

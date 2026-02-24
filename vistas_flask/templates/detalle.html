@@ -1,0 +1,51 @@
+{% extends "base_panel.html" %}
+
+{% block title %}Pedidos{% endblock %}
+
+{% block content %}
+
+<h3>Historial de Pedidos</h3>
+
+<table class="tabla-general">
+
+<tr>
+    <th>ID</th>
+    <th>Fecha</th>
+    <th>Total</th>
+    <th>Estado</th>
+    <th>Acción</th>
+</tr>
+
+<tr>
+    <td>003</td>
+    <td>19/02/2026</td>
+    <td>$3540</td>
+    <td><span class="pendiente">Pendiente</span></td>
+    <td>
+        <button class="btn-ver">Ver detalles</button>
+    </td>
+</tr>
+
+<tr>
+    <td>002</td>
+    <td>15/01/2025</td>
+    <td>$850</td>
+    <td><span class="enviado">Enviado</span></td>
+    <td>
+        <button class="btn-ver">Ver detalles</button>
+    </td>
+</tr>
+
+<tr>
+    <td>001</td>
+    <td>10/01/2025</td>
+    <td>$1620</td>
+    <td><span class="completado">Completado</span></td>
+    <td>
+        <button class="btn-ver">Ver detalles</button>
+    </td>
+</tr>
+
+</table>
+
+{% endblock %}

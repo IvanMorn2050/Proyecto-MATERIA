@@ -1,0 +1,35 @@
+{% extends "base_panel.html" %}
+
+{% block title %}Mis Pedidos{% endblock %}
+
+{% block content %}
+
+<table>
+
+<tr>
+    <th>ID</th>
+    <th>Fecha</th>
+    <th>Total</th>
+    <th>Estatus</th>
+    <th>Acción</th>
+</tr>
+
+<tr>
+    <td>003</td>
+    <td>19/02/2026</td>
+    <td>$3540</td>
+    <td><span class="pendiente">Pendiente</span></td>
+    <td><a href="/detalle">Ver</a></td>
+</tr>
+
+<tr>
+    <td>002</td>
+    <td>15/01/2025</td>
+    <td>$850</td>
+    <td><span class="enviado">Enviado</span></td>
+    <td><a href="/detalle">Ver</a></td>
+</tr>
+
+</table>
+
+{% endblock %}
