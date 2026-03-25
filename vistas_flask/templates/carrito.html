@@ -1,38 +1,5 @@
 {% extends "base_panel.html" %}
-
 {% block title %}Carrito{% endblock %}
-
 {% block content %}
-
-<table class="tabla-carrito">
-
-<tr>
-    <th>Producto</th>
-    <th>Cantidad</th>
-    <th>Precio</th>
-    <th>Subtotal</th>
-    <th>Acción</th>
-</tr>
-
-<tr>
-    <td>Balatas</td>
-
-    <td>
-        <input type="number" value="5" class="input-cantidad">
-    </td>
-
-    <td>$600</td>
-    <td>$3000</td>
-
-    <td>
-        <a href="#" class="btn-eliminar">Eliminar</a>
-    </td>
-</tr>
-
-</table>
-
-<h3>Total: $3540</h3>
-
-<button>Confirmar pedido</button>
-
+<p>Tu carrito está vacío.</p>
 {% endblock %}

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Panel</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', path='style.css') }}">
 </head>
 <body>
 
@@ -11,7 +11,6 @@
 
     <aside>
         <div class="avatar"></div>
-
         <a href="/catalogo">Catálogo</a>
         <a href="/pedidos">Mis pedidos</a>
         <a href="/carrito">Carrito</a>
@@ -19,20 +18,16 @@
     </aside>
 
     <main>
-
         <header>
-            <h2>{% block title %}{% endblock %}</h2>
-
-            <input type="search" placeholder="Buscar..." class="search-box">
-
-            <div class="user">
-            </div>
+            <form method="GET" action="/catalogo">
+                <input type="search" name="buscar" placeholder="Buscar..." class="search-box"
+                    value="{{ request.query_params.get('buscar', '') }}">
+            </form>
         </header>
 
         <section>
             {% block content %}{% endblock %}
         </section>
-
     </main>
 
 </div>

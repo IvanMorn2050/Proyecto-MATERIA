@@ -3,13 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Acceso</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', path='style.css') }}">
 </head>
 <body class="auth-body">
 
-    <div class="auth-box">
-        {% block content %}{% endblock %}
-    </div>
+    {% block content %}{% endblock %}
 
 </body>
 </html>

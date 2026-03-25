@@ -3,18 +3,26 @@
 {% block content %}
 
 <div class="auth-container">
-    <form class="auth-form">
+    <form class="auth-form" method="POST" action="/login">
         <div class="auth-box">
             <div class="circle"></div>
             <h2>BIENVENIDO</h2>
+
+            {% if error %}
+            <p class="error-msg">{{ error }}</p>
+            {% endif %}
+
             <label>Correo electrónico</label>
-            <input type="email" placeholder="correo@email.com">
+            <input type="email" name="correo" placeholder="correo@email.com" required>
+
             <label>Contraseña</label>
-            <input type="password" placeholder="********">
+            <input type="password" name="contrasena" placeholder="********" required>
+
             <a href="#" class="forgot-link">Olvidé mi contraseña</a>
         </div>
+
         <div class="auth-actions">
-            <a href="/catalogo" class="btn-alt">ENTRAR</a>
+            <button type="submit" class="btn-alt">ENTRAR</button>
             <a href="/register" class="btn-alt">REGISTRARSE</a>
         </div>
     </form>

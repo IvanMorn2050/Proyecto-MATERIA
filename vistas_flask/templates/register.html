@@ -3,27 +3,30 @@
 {% block content %}
 
 <div class="auth-container">
-    <form class="auth-form">
+    <form class="auth-form" method="POST" action="/register">
         <div class="auth-box">
-            <div class="circle"></div>
-            <h2>REGISTRO DE CLIENTE</h2>
+            <h2>REGISTRO</h2>
+
+            {% if error %}
+            <p class="error-msg">{{ error }}</p>
+            {% endif %}
+
             <label>Nombre completo</label>
-            <input type="text" placeholder="Tu nombre">
+            <input type="text" name="nombre" placeholder="Tu nombre" required>
+
             <label>Correo electrónico</label>
-            <input type="email" placeholder="correo@email.com">
+            <input type="email" name="correo" placeholder="correo@email.com" required>
+
             <label>Contraseña</label>
-            <input type="password" placeholder="********">
+            <input type="password" name="contrasena" placeholder="********" required>
+
             <label>Confirmar contraseña</label>
-            <input type="password" placeholder="********">
-            <label>Teléfono</label>
-            <input type="tel" placeholder="555-000-0000">
-            <label>Dirección</label>
-            <input type="text" placeholder="Calle y número">
+            <input type="password" name="confirmar" placeholder="********" required>
         </div>
 
         <div class="auth-actions">
-            <button type="submit">REGISTRARSE</button>
-            <a href="/" class="btn-alt">VOLVER</a>
+            <a href="/login" class="btn-alt">YA TENGO CUENTA</a>
+            <button type="submit" class="btn-alt">REGISTRARME</button>
         </div>
     </form>
 </div>

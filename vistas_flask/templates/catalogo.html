@@ -4,36 +4,58 @@
 
 {% block content %}
 
-<table>
+<!-- Filtros -->
+<div class="filtros">
+    <a href="/catalogo" class="filtro-btn {% if categoria_activa == 0 %}activo{% endif %}">
+        Todos
+    </a>
+    {% for cat in categorias %}
+    <a href="/catalogo?categoria={{ cat.id_categoria }}{% if buscar %}&buscar={{ buscar }}{% endif %}"
+       class="filtro-btn {% if categoria_activa == cat.id_categoria %}activo{% endif %}">
+        {{ cat.nombre }}
+    </a>
+    {% endfor %}
+</div>
 
-<tr>
-    <th>Autoparte</th>
-    <th>Precio</th>
-    <th>Stock</th>
-    <th>Acción</th>
-</tr>
+<!-- Resultados -->
+<p class="resultados-info">
+    {% if buscar %}
+        {{ autopartes|length }} resultado(s) para "<strong>{{ buscar }}</strong>"
+        {% if categoria_activa %}— en esta categoría{% endif %}
+    {% else %}
+        {{ autopartes|length }} producto(s)
+        {% if categoria_activa %}en esta categoría{% endif %}
+    {% endif %}
+</p>
 
-<tr>
-    <td>Filtro de aceite</td>
-    <td>$250</td>
-    <td>15</td>
-    <td><button>Agregar</button></td>
-</tr>
-
-<tr>
-    <td>Balatas freno</td>
-    <td>$600</td>
-    <td>8</td>
-    <td><button>Agregar</button></td>
-</tr>
-
-<tr>
-    <td>Bujías</td>
-    <td>$120</td>
-    <td>30</td>
-    <td><button>Agregar</button></td>
-</tr>
-
-</table>
+<!-- Grid -->
+<div class="catalogo-grid">
+    {% for parte in autopartes %}
+    <div class="card">
+        {% if parte.imagen %}
+        <img src="/static/uploads/{{ parte.imagen }}" alt="{{ parte.nombre }}">
+        {% else %}
+        <div class="card-img-placeholder"></div>
+        {% endif %}
+        <div class="card-body">
+            <span class="categoria-tag">{{ parte.categoria.nombre }}</span>
+            <h3>{{ parte.nombre }}</h3>
+            <p>{{ parte.descripcion }}</p>
+            <div class="card-footer">
+                <span class="precio">${{ parte.precio }}</span>
+                <span class="stock {% if parte.stock == 0 %}sin-stock{% endif %}">
+                    {% if parte.stock > 0 %}Stock: {{ parte.stock }}{% else %}Sin stock{% endif %}
+                </span>
+            </div>
+            <a href="/detalle?id={{ parte.id_autoparte }}" class="btn-ver">Ver detalle</a>
+        </div>
+    </div>
+    {% else %}
+    <div class="sin-resultados">
+        <p>No se encontraron productos.</p>
+        <a href="/catalogo">Ver todos</a>
+    </div>
+    {% endfor %}
+</div>
 
 {% endblock %}
